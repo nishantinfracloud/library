@@ -9,9 +9,12 @@ import (
 	"github.com/golang/glog"
 )
 
+var libraryService = services.NewLibraryService()
+
+// FetchBooks: fetches data of all available books
 func FetchBooks() gin.HandlerFunc {
 	fn := func(c *gin.Context) {
-		booksData, err := services.FetchBooks()
+		booksData, err := libraryService.FetchBooks()
 		if err != nil {
 			glog.Error("FetchBooks Failed...")
 			c.JSON(http.StatusBadRequest, err.Error())
@@ -23,9 +26,10 @@ func FetchBooks() gin.HandlerFunc {
 	return fn
 }
 
+// AddBook: adds a new book
 func AddBook() gin.HandlerFunc {
 	fn := func(c *gin.Context) {
-		var requestData models.Book
+		var requestData models.Books
 		err := c.Bind(&requestData)
 		if err != nil {
 			glog.Error("Binding RequestData Failed...")
@@ -33,7 +37,7 @@ func AddBook() gin.HandlerFunc {
 			return
 		}
 
-		err = services.AddBook(requestData)
+		err = libraryService.AddBook(requestData)
 		if err != nil {
 			glog.Error("Add Book Failed...")
 			c.JSON(http.StatusBadRequest, err.Error())

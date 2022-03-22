@@ -47,6 +47,7 @@ func Init() {
 	db.DB().SetConnMaxLifetime(time.Hour * time.Duration(connectionMaxLifetime))
 	db.SingularTable(true)
 
+	// adding migrations
 	workingDir = workingDir + "/internal/app/database/migration"
 	migrateConf := &goose.DBConf{
 		MigrationsDir: workingDir,

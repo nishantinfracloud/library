@@ -8,9 +8,16 @@ import (
 	"github.com/golang/glog"
 )
 
-func FetchBooks() ([]models.Book, error) {
-	var booksData []models.Book
+type LibraryService struct{}
 
+func NewLibraryService() *LibraryService {
+	return &LibraryService{}
+}
+
+func (l *LibraryService) FetchBooks() ([]models.Books, error) {
+	var booksData []models.Books
+
+	// fetch active database connection
 	dbConnection := database.GetDB()
 	if dbConnection == nil {
 		glog.Error("DB Connection Is Null While Fetching Books")
@@ -26,7 +33,8 @@ func FetchBooks() ([]models.Book, error) {
 	return booksData, err
 }
 
-func AddBook(bookData models.Book) error {
+func (l *LibraryService) AddBook(bookData models.Books) error {
+	// fetch active database connection
 	dbConnection := database.GetDB()
 	if dbConnection == nil {
 		glog.Error("DB Connection Is Null While Fetching Books")

@@ -17,7 +17,7 @@ const (
 	AddBook    = "/addBook"
 
 	//Config File Path
-	ConfigFilePath = "./pkg"
+	ConfigFilePath = "./internal/app"
 
 	//Error Message
 	InvalidUrlShortenerNameError = "Invalid UrlShortener name provided"

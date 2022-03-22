@@ -1,11 +1,11 @@
 package main
 
 import (
+	"library/internal/app/config"
+	"library/internal/app/constants"
+	"library/internal/app/database"
 	"library/internal/app/server"
 	"os"
-
-	"library/pkg/config"
-	"library/pkg/constants"
 )
 
 func main() {
@@ -17,6 +17,9 @@ func main() {
 
 	// initialize config
 	config.Init(service, environment, constants.ConfigFilePath)
+
+	// initialize database
+	database.Init()
 
 	// initialize server
 	server.Init()

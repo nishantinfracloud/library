@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"library/pkg/constants"
+	"library/internal/app/constants"
 	"log"
+
 	"strings"
 
 	"github.com/spf13/viper"
@@ -28,9 +29,9 @@ func fetchConfiguration(service, path, env string) ([]byte, error) {
 	if result == 0 {
 		bodyBytes, err = ioutil.ReadFile(path + "/config/config.json")
 		if err != nil {
-			fmt.Println("Couldn't read local configuration file.", err)
+			log.Println("Couldn't read local configuration file.", err)
 		} else {
-			log.Print("using local config.")
+			log.Println("using local config.")
 		}
 	} else {
 		fmt.Println("No configurations found for other environments...")

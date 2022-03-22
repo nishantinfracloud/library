@@ -5,7 +5,7 @@
         "ServerPort": ":8080",
         "Environment": "dev",
         "database.username": "postgres",
-        "database.password": "flywaydb",
+        "database.password": "somePassword",
         "database.host": "localhost",
         "database.name": "library",
         "postgresdb.maxIdleConnections": 5,

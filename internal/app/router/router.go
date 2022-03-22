@@ -1,7 +1,7 @@
 package router
 
 import (
-	"library/pkg/constants"
+	"library/internal/app/constants"
 	"strings"
 
 	cors "github.com/rs/cors/wrapper/gin"
