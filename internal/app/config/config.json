@@ -1,0 +1,15 @@
+{
+    "name": "url-shortener",
+    "property":         {   
+        "LibraryBaseUrl": "http://localhost:8080",
+        "ServerPort": ":8080",
+        "Environment": "dev",
+        "database.username": "postgres",
+        "database.password": "somePassword",
+        "database.host": "localhost",
+        "database.name": "library",
+        "postgresdb.maxIdleConnections": 5,
+        "postgresdb.maxOpenConns": 30,
+        "postgresdb.connMaxLifetimeInHours": 1
+    }
+}
